@@ -16,7 +16,7 @@ export const getUserFromToken = () => {
   const token = getToken();
 
   if (!token) return null;
-
+  console.log(token);
   const payload = JSON.parse(atob(token.split(".")[1]));
 
   if (payload.exp < Date.now() / 1000) {
