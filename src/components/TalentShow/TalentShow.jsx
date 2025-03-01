@@ -9,6 +9,7 @@ export default function TalentProfile() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    console.log("Fetching talent with ID:", id);
     const fetchTalent = async () => {
       setError("");
       try {

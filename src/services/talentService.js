@@ -15,9 +15,9 @@ export const talentIndex = async () => {
 };
 
 // One talent
-export const talentShow = async () => {
+export const talentShow = async (talentId) => {
   try {
-    const res = await axios.get(`${BASE_URL}/${talentId}`);
+    const res = await axios.get(`${BASE_URL}/${talentId}/`);
     return res.data;
   } catch (error) {
     console.log(error);
