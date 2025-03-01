@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import { removeToken } from "../../utils/auth";
 import styles from "./nav.module.css";
+import logo from "../../assets/Logo_Red.png";
 
 export default function NavBar() {
   const { user, setUser } = useContext(UserContext);
@@ -55,7 +56,9 @@ export default function NavBar() {
             </>
           )}
         </div>
-        <div className={styles.logo}></div>
+              <div className={styles.logo}>
+                  <img src={logo} alt="Logo" width='150px'/>
+        </div>
       </div>
     </nav>
   );
