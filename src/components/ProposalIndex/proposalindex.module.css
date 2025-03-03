@@ -1,0 +1,102 @@
+.proposalsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.proposalsContainer h2 {
+  color: #F7371E;
+  word-spacing: 5px;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.proposalsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 90%;
+  max-width: 1200px;
+  justify-content: center;
+  margin-left: 0;
+}
+
+.proposalCard {
+  background: #2a2929;
+  border-radius: 3px;
+  padding: 15px 15px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-top: 20px;
+}
+
+.proposalCard:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.proposalLink {
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.proposalInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.proposalInfo h4 {
+  font-size: 18px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 25%;
+  margin-left: 10px;
+}
+
+.proposalInfo p {
+  font-size: 14px;
+  color: lightgray;
+  margin: 0;
+  width: 20%;
+}
+
+/* ✅ Buttons */
+.cardButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.cardButtons button {
+  background-color: white;
+  color: #3e3d3d;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  width:70%;
+  margin-right: 10px;
+  margin-top: 0;
+}
+
+.cardButtons button:hover {
+  background-color: #F7371E;
+  color: white;
+  transform: scale(1.05);
+}

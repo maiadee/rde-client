@@ -35,7 +35,7 @@ export default function Signup() {
   };
 
   return (
-    <section className={styles.container}>
+    <section className={styles.signUpContainer}>
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <div className={styles["form-group"]}>

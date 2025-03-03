@@ -12,7 +12,8 @@ export default function AllTalent() {
       .catch((err) => console.log(err));
   }, []);
 
-   return (
+  return (
+     <div className={styles.gridContainer}>
      <div className={styles.talentGrid}>
        {talent.map((tal) => (
          <div key={tal.id} className={styles.talentCard}>
@@ -35,6 +36,7 @@ export default function AllTalent() {
            </Link>
          </div>
        ))}
-     </div>
+      </div>
+      </div>
    );
 }

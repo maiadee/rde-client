@@ -44,49 +44,51 @@ export default function Login() {
   };
 
   return (
-    <section className={styles.container}>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div className={styles["form-group"]}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Enter your username"
-            required
-            onChange={handleChange}
-          />
-          {errors.username && (
-            <p className="error-message">{errors.username}</p>
-          )}
-        </div>
+    <section className={styles.loginContainer}>
+      <h2>Login</h2>
+      <div className={styles.form}>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.form}>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Enter your username"
+              required
+              onChange={handleChange}
+            />
+            {errors.username && (
+              <p className="error-message">{errors.username}</p>
+            )}
+          </div>
 
-        <div className={styles["form-group"]}>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Enter your password"
-            required
-            onChange={handleChange}
-          />
-          {errors.password && (
-            <p className="error-message">{errors.password}</p>
-          )}
-        </div>
+          <div className={styles.form}>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+              onChange={handleChange}
+            />
+            {errors.password && (
+              <p className="error-message">{errors.password}</p>
+            )}
+          </div>
 
-        {errors.general && <p className="error-message">{errors.general}</p>}
+          {errors.general && <p className="error-message">{errors.general}</p>}
 
-        <button
-          className={styles.button}
-          disabled={formData.identifier === "" || formData.password === ""}
-          type="submit"
-        >
-          Log In
-        </button>
-      </form>
+          <button
+            className={styles.button}
+            disabled={formData.identifier === "" || formData.password === ""}
+            type="submit"
+          >
+            Log In
+          </button>
+        </form>
+      </div>
     </section>
   );
 }

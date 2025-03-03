@@ -1,0 +1,103 @@
+html,
+body {
+  font-family: Switzer;
+}
+
+.loginContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.loginContainer h2 {
+  color: #F7371E;
+  margin-top: 0;
+  padding-bottom: 15px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.loginContainer .form {
+  display: flex;
+  flex-direction: column;
+  background-color: #2a2929;
+  padding: 20px;
+  border-radius: 3px;
+  width: 60%;
+  max-width: 600px;
+  box-sizing: border-box;
+
+}
+
+/* ✅ Adjustments for spacing & alignment */
+.loginContainer .form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  color: lightgray;
+  width: 100%;
+}
+
+/* ✅ Label Styling */
+.loginContainer .form label {
+  font-size: 16px;
+  padding-bottom: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: lightgray;
+}
+
+/* ✅ Input field styling */
+.loginContainer .form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 14px;
+  box-sizing: border-box;
+  height: 40px;
+  background-color: rgb(245, 243, 243);
+  border: 1px solid #ccc;
+  transition: border 0.3s ease-in-out;
+}
+
+/* ✅ Input focus effect */
+.loginContainer .form input:focus {
+  border-color: #F7371E;
+  outline: none;
+}
+
+/* ✅ Error messages */
+.loginContainer .error-message {
+  color: #F7371E;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* ✅ Centering the button */
+.loginContainer .button {
+  background-color: white;
+  color: #3e3d3d;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 30%;
+  max-width: 200px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.loginContainer .button:hover {
+  background-color: #F7371E;
+  color: white;
+  transform: scale(1.05);
+}
