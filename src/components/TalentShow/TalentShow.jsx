@@ -4,16 +4,16 @@ import { talentShow } from "../../services/talentService";
 import styles from "./talentshow.module.css";
 
 export default function TalentProfile() {
-  const { id } = useParams();
+  const { talentId } = useParams();
   const [talent, setTalent] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    console.log("Fetching talent with ID:", id);
+    console.log("Fetching talent with ID:", talentId);
     const fetchTalent = async () => {
       setError("");
       try {
-        const data = await talentShow(id);
+        const data = await talentShow(talentId);
         if (data) {
           setTalent(data);
         } else {
@@ -26,7 +26,7 @@ export default function TalentProfile() {
     };
 
     fetchTalent();
-  }, [id]);
+  }, [talentId]);
 
   if (error) return <p className="error-message">{error}</p>;
 

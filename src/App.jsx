@@ -5,6 +5,7 @@ import NavMenu from "./components/Nav/Nav";
 import Homepage from "./components/Homepage/Homepage";
 import AllTalent from "./components/TalentIndex/TalentIndex";
 import TalentProfile from "./components/TalentShow/TalentShow";
+import CreateProposal from "./components/CreateProposal/CreateProposal";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/talent" element={<AllTalent />} />
           <Route path="/talent/:talentId" element={<TalentProfile />} />
+          <Route path="/proposal" element={<CreateProposal />} />
           <Route path="/auth/login/" element={<Login />} />
           <Route path="/auth/signup/" element={<Signup />} />
         </Routes>

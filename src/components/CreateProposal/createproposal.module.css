@@ -1,0 +1,83 @@
+html,
+body {
+  font-family: Switzer;
+  margin: 0;
+  padding: 0;
+}
+
+.proposalContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+}
+
+.proposalContainer h2 {
+    color: #F7371E;
+    padding-bottom: 20px;
+}
+
+.proposalForm {
+    display: flex;
+    flex-direction: column;
+    background-color: #2a2929;
+    padding: 60px;
+    border-radius: 3px;
+    width: 60%;
+    box-sizing: border-box;
+}
+
+.formGroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    color: lightgray;
+    width: 100%;
+}
+
+.formGroup label {
+    font-size: 18px;
+    width: 30%;
+    padding-right: 5px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.formGroup input, .formGroup textarea, .formGroup select {
+    width: 80%;
+    padding: 8px;
+    border-radius: 2px;
+    font-size: 12px;
+    box-sizing: border-box;
+    height: 35px;
+    background-color: rgb(245, 243, 243);
+}
+
+.formGroup textarea {
+  height: 80px; /* Bigger height for text area */
+}
+.formButtonContainer {
+  display: flex;
+  justify-content: center; /* Centers the button */
+  width: 100%;
+}
+
+button {
+  background-color: white;
+  color: #3e3d3d;
+  padding: 5px;
+  border: none;
+  border-radius: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 30%;
+  margin-top: 15px;
+  font-weight: 600;
+ 
+}
+
+button:hover {
+  background-color: lightgray;
+}
