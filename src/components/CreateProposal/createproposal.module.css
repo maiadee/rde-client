@@ -24,7 +24,8 @@ body {
 .proposalForm {
     display: flex;
     flex-direction: column;
-    background-color: #2a2929;
+    background-color: white;
+    border: 2px solid gray;
     padding: 50px;
     border-radius: 3px;
     width: 70%;
@@ -37,7 +38,7 @@ body {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 16px;
-    color: lightgray;
+    color: dark gray;
     width: 100%;
 }
 
@@ -85,7 +86,7 @@ body {
 
 
 button {
-  background-color: white;
+  background-color: gray;
   color: #3e3d3d;
   padding: 10px 15px;
   border: none;
@@ -100,7 +101,7 @@ button {
 }
 
 button:hover {
-  background-color: #F7371E;
+  background-color: #656464;
   color: white;
   transform: scale(1.05);
 }
