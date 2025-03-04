@@ -7,6 +7,7 @@ import AllTalent from "./components/TalentIndex/TalentIndex";
 import TalentProfile from "./components/TalentShow/TalentShow";
 import CreateProposal from "./components/CreateProposal/CreateProposal";
 import AllProposals from "./components/ProposalIndex/ProposalIndex";
+import UpdateProposal from "./components/UpdateProposal/UpdateProposal";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/proposal/user" element={<AllProposals />} />
           <Route path="/proposal/admin" element={<AllProposals />} />
           <Route path="/proposal" element={<CreateProposal />} />
+          <Route path="/proposal/:proposalId/update" element={<UpdateProposal />} />
           <Route path="/auth/login/" element={<Login />} />
           <Route path="/auth/signup/" element={<Signup />} />
         </Routes>

@@ -66,7 +66,7 @@ export const proposalShow = async (proposalId) => {
 // Update proposals
 export const proposalUpdate = async (proposalId, formData) => {
   try {
-    const res = await axios.put(BASE_URL + `/${proposalId}`, formData, {
+    const res = await axios.put(BASE_URL + `/${proposalId}/`, formData, {
       headers: {
         Authorization: `Bearer ${getToken()}`,
       },
@@ -81,7 +81,7 @@ export const proposalUpdate = async (proposalId, formData) => {
 // Delete proposal
 export const proposalDelete = async (proposalId) => {
   try {
-    const res = await axios.delete(BASE_URL + `/${proposalId}`, {
+    const res = await axios.delete(BASE_URL + `/${proposalId}/`, {
       headers: {
         Authorization: `Bearer ${getToken()}`,
       },

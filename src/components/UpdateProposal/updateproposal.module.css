@@ -1,0 +1,106 @@
+html,
+body {
+  font-family: Switzer;
+
+}
+
+.proposalContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+.proposalContainer h2 {
+    color: #F7371E;
+    margin-top: 0;
+    padding-bottom: 15px;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.proposalForm {
+    display: flex;
+    flex-direction: column;
+    background-color: #2a2929;
+    padding: 50px;
+    border-radius: 3px;
+    width: 70%;
+    box-sizing: border-box;
+
+}
+
+.formGroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    color: lightgray;
+    width: 100%;
+}
+
+.formGroup label {
+    font-size: 16px;
+    width: 35%; 
+    padding-right: 10px;
+    text-align: left;
+    font-weight: 500;
+     text-transform: uppercase;
+}
+
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+    width: 90%; 
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    box-sizing: border-box;
+    height: 40px;
+    background-color: rgb(245, 243, 243);
+    border: 1px solid #ccc; 
+    transition: border 0.3s ease-in-out;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+    border-color: #F7371E; 
+    outline: none;
+}
+
+.formGroup textarea {
+  height: 100px;
+  resize: none; 
+}
+
+.formButtonContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
+button {
+  background-color: white;
+  color: #3e3d3d;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 30%; 
+  max-width: 200px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #F7371E;
+  color: white;
+  transform: scale(1.05);
+}
