@@ -13,18 +13,19 @@ body {
 
 .loginContainer h2 {
   color: #F7371E;
-  margin-top: 0;
-  padding-bottom: 15px;
+
+  padding-bottom: 10px;
   font-size: 26px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1px;
+text-transform: uppercase;
 }
 
 .loginContainer .form {
   display: flex;
   flex-direction: column;
-  background-color: #2a2929;
-  padding: 20px;
+  background-color: white;
+  padding: 30px;
   border-radius: 3px;
   width: 60%;
   max-width: 600px;
@@ -32,26 +33,27 @@ body {
 
 }
 
-/* ✅ Adjustments for spacing & alignment */
-.loginContainer .form {
+.loginContainer .formGroup {
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
-  color: lightgray;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #3e3d3d;
   width: 100%;
 }
 
-/* ✅ Label Styling */
-.loginContainer .form label {
+
+.loginContainer .formGroup label {
   font-size: 16px;
   padding-bottom: 10px;
   font-weight: 500;
   text-transform: uppercase;
-  color: lightgray;
+  color: #1a1a1a;
 }
 
-/* ✅ Input field styling */
-.loginContainer .form input {
+
+.loginContainer .formGroup input {
   width: 100%;
   padding: 10px;
   border-radius: 3px;
@@ -59,12 +61,12 @@ body {
   box-sizing: border-box;
   height: 40px;
   background-color: rgb(245, 243, 243);
-  border: 1px solid #ccc;
+  border: none;
   transition: border 0.3s ease-in-out;
 }
 
 /* ✅ Input focus effect */
-.loginContainer .form input:focus {
+.loginContainer .formGroup input:focus {
   border-color: #F7371E;
   outline: none;
 }
@@ -77,11 +79,11 @@ body {
 }
 
 /* ✅ Centering the button */
-.loginContainer .button {
-  background-color: white;
-  color: #3e3d3d;
-  padding: 5px 10px;
-  border: none;
+.loginContainer .loginButton {
+  background-color: #F7371E;
+  color: white;
+  padding: 10px 15px;
+  border: 2px solid #F7371E;
   border-radius: 2px;
   font-size: 14px;
   cursor: pointer;
@@ -93,11 +95,11 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
+  margin-top: 40px;
 }
 
-.loginContainer .button:hover {
-  background-color: #F7371E;
-  color: white;
+.loginContainer .loginButton:hover {
+  background-color: white;
+  color: #F7371E;
   transform: scale(1.05);
 }

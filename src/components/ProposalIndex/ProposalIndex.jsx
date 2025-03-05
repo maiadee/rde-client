@@ -13,6 +13,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import Spinner from "../Spinner/Spinner";
 
 const modalStyle = {
   position: "absolute",
@@ -21,25 +22,23 @@ const modalStyle = {
   transform: "translate(-50%, -50%)",
   width: "500px",
   maxWidth: "90vw",
-  height: "auto",
-  bgcolor: "#2a2929",
-  borderRadius: "5px",
-  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.35)",
+  bgcolor: "white",
+  border: "none",
+  borderRadius: "2px",
+  boxShadow: "0 10px 20px rgba(0,0,0,0.05)",
   p: 5,
-  color: "#bcb4b3",
-  display: "flex",
-  flexDirection: "column",
-  gap: "15px",
+  color: "#3e3d3d",
   fontFamily: "Switzer, sans-serif",
 };
 
 export default function AllProposals() {
   const [proposal, setProposal] = useState([]);
-  const [modalProposal, setModalProposal] = useState(null)
+  const [modalProposal, setModalProposal] = useState(null);
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
   const { proposalId } = useParams();
   const [open, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const statusOptions = [
     { value: "pending", label: "Pending" },
@@ -50,6 +49,7 @@ export default function AllProposals() {
 
   useEffect(() => {
     const fetchProposals = async () => {
+      setIsLoading(true);
       try {
         let data;
         if (user.is_admin) {
@@ -62,16 +62,18 @@ export default function AllProposals() {
         setProposal(data);
       } catch (error) {
         console.error("Error fetching proposals:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchProposals();
   }, [user, navigate]); // Runs when `user` or `navigate` changes
 
-    const handleUpdate = (proposalId) => {
-      navigate(`/proposal/${proposalId}/update`);
-    };
-    
+  const handleUpdate = (proposalId) => {
+    navigate(`/proposal/${proposalId}/update`);
+  };
+
   const handleRemove = async (proposalId) => {
     try {
       await proposalDelete(proposalId);
@@ -105,19 +107,21 @@ export default function AllProposals() {
 
   const handleView = async (proposalId) => {
     try {
-      setOpen(true)
-      const data = await proposalShow(proposalId)
+      setOpen(true);
+      const data = await proposalShow(proposalId);
       console.log("Fetched Proposal Data:", data);
-      setModalProposal(data)
+      setModalProposal(data);
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   const handleClose = async () => {
-    setOpen(false)
-    setModalProposal(null)
-  }
+    setOpen(false);
+    setModalProposal(null);
+  };
+
+  if (isLoading) return <Spinner />;
 
   return (
     <>
@@ -164,6 +168,11 @@ export default function AllProposals() {
                       ))}
                     </select>
                   </div>
+                  <div className={styles.cardButtonsAdmin}>
+                    <button onClick={() => handleRemove(prop.id)}>
+                      Delete Proposal
+                    </button>
+                  </div>
                 </div>
               ))
             : proposal.map((prop) => (
@@ -172,11 +181,6 @@ export default function AllProposals() {
                   className={styles.proposalCard}
                   onClick={() => handleView(prop.id)}
                 >
-                  {/* Clicking the name or image takes the user to the proposal page */}
-                  {/* <Link
-                  to={`/proposal/${prop.id}`}
-                  className={styles.proposalLink}
-                > */}
                   <div className={styles.proposalInfo}>
                     <h4>{prop.project_title}</h4>
                     <p>
@@ -212,76 +216,144 @@ export default function AllProposals() {
             {/* Title */}
             <Typography
               id="modal-title"
-              variant="h6"
+              variant="h2"
               component="h2"
               sx={{
-                fontWeight: "bold",
                 fontSize: "24px",
+                fontWeight: 500,
+                letterSpacing: "1px",
+                textTransform: "uppercase",
                 textAlign: "center",
-                paddingBottom: "10px",
-                borderBottom: "1px solid rgba(255, 255, 255, 0.2)",
-                color: "light gray", // Subtle underline
+                marginBottom: "25px",
+                position: "relative",
+                color: "#3e3d3d",
               }}
             >
               {modalProposal.project_title}
             </Typography>
 
-            {/* Info Wrapper for better layout */}
+            {/* Info Wrapper */}
             <Box
               sx={{
-                textAlign: "left",
                 display: "flex",
                 flexDirection: "column",
-                gap: "8px",
+                gap: "15px",
               }}
             >
               <Typography
-                sx={{ fontSize: "16px", padding: "8px 0", lineHeight: "1.5" }}
-              >
-                <strong>Submitted by:</strong>{" "}
-                {modalProposal.user ? modalProposal.user.username : "Unknown"}
-              </Typography>
+                sx={{
+                  fontSize: "18px",
+                  color: "#3e3d3d",
+                  textTransform: "uppercase",
+                  letterSpacing: "1.5px",
+                  fontWeight: 400,
+                  borderBottom: "1px solid #e0e0e0",
+                  paddingBottom: "10px",
+                  marginBottom: "10px",
+                }}
+              ></Typography>
 
               <Typography
-                sx={{ fontSize: "16px", padding: "8px 0", lineHeight: "1.5" }}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  fontSize: "14px",
+                  color: "#666",
+                }}
               >
-                <strong>Talent:</strong>{" "}
-                {modalProposal.talent ? modalProposal.talent.name : "Unknown"}{" "}
-                <br />
-                <strong>Brand:</strong> {modalProposal.brand}
-              </Typography>
-
-              <Typography
-                sx={{ fontSize: "16px", padding: "8px 0", lineHeight: "1.5" }}
-              >
-                <strong>Project Proposal:</strong>{" "}
-                {modalProposal.project_proposal}
-              </Typography>
-
-              <Typography
-                sx={{ fontSize: "16px", padding: "8px 0", lineHeight: "1.5" }}
-              >
-                <strong>Budget:</strong> {modalProposal.budget} <br />
-                <strong>Deadline:</strong> {modalProposal.deadline}
+                <strong>Submitted by:</strong>
+                <span>
+                  {modalProposal.user ? modalProposal.user.username : "Unknown"}
+                </span>
               </Typography>
 
               <Typography
                 sx={{
-                  fontSize: "16px",
-                  fontWeight: "bold",
-                  padding: "8px 0",
-                  color:
-                    modalProposal.status === "accepted"
-                      ? "#00C851"
-                      : modalProposal.status === "rejected"
-                      ? "#ff4444"
-                      : modalProposal.status === "under_review"
-                      ? "#ffbb33"
-                      : "#ffffff",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  fontSize: "14px",
+                  color: "#666",
                 }}
               >
-                <strong>Status:</strong> {modalProposal.status}
+                <strong>Talent:</strong>
+                <span>
+                  {modalProposal.talent ? modalProposal.talent.name : "Unknown"}
+                </span>
               </Typography>
+
+              <Typography
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  fontSize: "14px",
+                  color: "#666",
+                }}
+              >
+                <strong>Brand:</strong>
+                <span>{modalProposal.brand}</span>
+              </Typography>
+
+              <Typography
+                sx={{
+                  fontSize: "14px",
+                  color: "#666",
+                }}
+              >
+                <strong>Project Proposal:</strong>
+                <p>{modalProposal.project_proposal}</p>
+              </Typography>
+
+              <Typography
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  fontSize: "14px",
+                  color: "#666",
+                }}
+              >
+                <strong>Budget:</strong>
+                <span>{modalProposal.budget}</span>
+              </Typography>
+
+              <Typography
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  fontSize: "14px",
+                  color: "#666",
+                }}
+              >
+                <strong>Deadline:</strong>
+                <span>{modalProposal.deadline}</span>
+              </Typography>
+
+              <Box
+                sx={{
+                  borderTop: "1px solid #e0e0e0",
+                  paddingTop: "20px",
+                  marginTop: "20px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                    color:
+                      modalProposal.status === "accepted"
+                        ? "#00C851"
+                        : modalProposal.status === "rejected"
+                        ? "#ff4444"
+                        : modalProposal.status === "under_review"
+                        ? "#ffbb33"
+                        : "#3e3d3d",
+                  }}
+                >
+                  Status: {modalProposal.status}
+                </Typography>
+              </Box>
             </Box>
           </Box>
         </Modal>

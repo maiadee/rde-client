@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 100vh; */
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
@@ -34,6 +33,11 @@
     font-size: 22px;
     letter-spacing: 1px;
     word-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.talentName h4 {
+    font-weight: 500;
 }
 
 .talentCardImage img {

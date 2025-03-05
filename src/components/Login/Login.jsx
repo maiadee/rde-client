@@ -48,7 +48,7 @@ export default function Login() {
       <h2>Login</h2>
       <div className={styles.form}>
         <form onSubmit={handleSubmit}>
-          <div className={styles.form}>
+          <div className={styles.formGroup}>
             <label htmlFor="username">Username</label>
             <input
               type="text"
@@ -63,7 +63,7 @@ export default function Login() {
             )}
           </div>
 
-          <div className={styles.form}>
+          <div className={styles.formGroup}>
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -81,7 +81,7 @@ export default function Login() {
           {errors.general && <p className="error-message">{errors.general}</p>}
 
           <button
-            className={styles.button}
+            className={styles.loginButton}
             disabled={formData.identifier === "" || formData.password === ""}
             type="submit"
           >

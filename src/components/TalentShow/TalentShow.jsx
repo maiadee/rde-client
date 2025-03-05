@@ -2,16 +2,38 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { talentShow } from "../../services/talentService";
 import styles from "./talentshow.module.css";
+import Spinner from "../Spinner/Spinner"
+import * as React from "react";
+import { Box, Modal } from "@mui/material";
+
+const modalStyle = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "30%",
+  maxWidth: "600px",
+  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
+  p: 2,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  borderRadius: "2px",
+};
 
 export default function TalentProfile() {
   const { talentId } = useParams();
+  const [isLoading, setIsLoading] = useState(false);
   const [talent, setTalent] = useState(null);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     console.log("Fetching talent with ID:", talentId);
     const fetchTalent = async () => {
+      setIsLoading(true)
       setError("");
       try {
         const data = await talentShow(talentId);
@@ -23,15 +45,30 @@ export default function TalentProfile() {
       } catch (error) {
         console.error(error);
         setError("Failed to load talent. Please try again.");
+      } finally {
+        setIsLoading(false)
       }
     };
 
     fetchTalent();
   }, [talentId]);
 
+ const handleOpen = (image) => {
+   setSelectedImage(image);
+   setOpen(true);
+ };
+
+ const handleClose = () => {
+   setOpen(false);
+   setSelectedImage(null);
+ };
+
+
   if (error) return <p className="error-message">{error}</p>;
 
-  if (!talent) return <p>Talent not found.</p>;
+  if (!talent) return <Spinner />;
+
+  if (isLoading) return <Spinner />;
 
   const handleButtonClick = () => {
     navigate("/proposal")
@@ -49,7 +86,14 @@ export default function TalentProfile() {
               <img
                 src={`${import.meta.env.VITE_API_URL}${talent.profile_image}`}
                 alt={`Profile of ${talent.name}`}
-                width="200px"
+                onClick={() =>
+                  handleOpen(
+                    `${import.meta.env.VITE_API_URL}${talent.profile_image}`
+                  )
+                }
+                style={{ cursor: "pointer", transition: "transform 0.2s" }}
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
+                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
               />
             ) : (
               <p>No profile picture available</p>
@@ -70,6 +114,14 @@ export default function TalentProfile() {
                   key={img.id}
                   src={`${import.meta.env.VITE_API_URL}${img.image}`}
                   alt={`Work by ${talent.name}`}
+                  onClick={() =>
+                    handleOpen(`${import.meta.env.VITE_API_URL}${img.image}`)
+                  }
+                  style={{ cursor: "pointer", transition: "transform 0.2s" }}
+                  onMouseOver={(e) =>
+                    (e.target.style.transform = "scale(1.05)")
+                  }
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
                   width="100px"
                 />
               ))
@@ -77,6 +129,21 @@ export default function TalentProfile() {
               <p>No gallery images available</p>
             )}
           </div>
+          <Modal open={open} onClose={handleClose}>
+            <Box sx={modalStyle}>
+              {selectedImage && (
+                <img
+                  src={selectedImage}
+                  alt="Enlarged view"
+                  style={{
+                    maxWidth: "100%",
+                    maxHeight: "90vh",
+                    borderRadius: "2px",
+                  }}
+                />
+              )}
+            </Box>
+          </Modal>
         </div>
       </div>
     </div>

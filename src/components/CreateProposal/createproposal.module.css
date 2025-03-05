@@ -8,24 +8,25 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+
     padding: 40px 20px;
     width: 100%;
 }
 
 .proposalContainer h2 {
     color: #F7371E;
-    margin-top: 0;
-    padding-bottom: 15px;
+margin-bottom: 30px;
     font-size: 26px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 1px;
+    word-spacing: 3px;
+    text-transform: uppercase;
 }
 
 .proposalForm {
     display: flex;
     flex-direction: column;
     background-color: white;
-    border: 2px solid gray;
     padding: 50px;
     border-radius: 3px;
     width: 70%;
@@ -38,7 +39,7 @@ body {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 16px;
-    color: dark gray;
+    color: #3e3d3d;
     width: 100%;
 }
 
@@ -62,7 +63,7 @@ body {
     box-sizing: border-box;
     height: 40px;
     background-color: rgb(245, 243, 243);
-    border: 1px solid #ccc; 
+    border: none; 
     transition: border 0.3s ease-in-out;
 }
 
@@ -85,11 +86,11 @@ body {
 }
 
 
-button {
-  background-color: gray;
-  color: #3e3d3d;
+.formButtonContainer button {
+  background-color:  #F7371E;
+  color: white;
   padding: 10px 15px;
-  border: none;
+  border: 2px solid #F7371E;
   border-radius: 2px;
   font-size: 14px;
   cursor: pointer;
@@ -98,10 +99,15 @@ button {
   font-weight: 600;
   transition: all 0.3s ease-in-out;
   margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  text-transform: uppercase;
 }
 
-button:hover {
-  background-color: #656464;
-  color: white;
+.formButtonContainer button:hover {
+  background-color: white;
+  color: #F7371E;
   transform: scale(1.05);
 }

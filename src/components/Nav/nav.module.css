@@ -11,11 +11,12 @@
 }
 .navContainer {
     display: flex;
+    background-color: #F7371E;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
     padding:15px;
-    border-bottom: 2px solid #F7371E;
+    /* border-bottom: 2px solid #F7371E; */
 }
 
 .links {
@@ -27,7 +28,7 @@
 
 .link {
     text-decoration: none;
-    color: #F7371E;
+    color: white;
     font-weight: 600;
     padding-bottom: 5px;
     letter-spacing: 0.5px;

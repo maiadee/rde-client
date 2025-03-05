@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import { removeToken } from "../../utils/auth";
 import styles from "./nav.module.css";
-import logo from "../../assets/Logo_Red.png";
+import logo from "../../assets/Logo_OffWhite.png";
 
 export default function NavBar() {
   const { user, setUser } = useContext(UserContext);
