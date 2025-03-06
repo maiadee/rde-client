@@ -197,7 +197,7 @@ export default function AllProposals() {
                     </p>
                   </div>
                   {/* </Link> */}
-                  <div className={styles.cardButtons}>
+                  <div className={styles.cardButtonsUser}>
                     <button onClick={() => handleUpdate(prop.id)}>
                       Update Proposal
                     </button>

@@ -38,6 +38,7 @@
     transform 0.3s ease;
   position: relative;
   overflow: hidden;
+  height: 350px;
 }
 
 .proposalCard:hover {
@@ -74,7 +75,7 @@
   font-weight: 400;
 }
 
-.cardButtonsAdmin {
+.cardButtonsAdmin, .cardButtonsUser{
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -82,7 +83,7 @@
   padding-top: 15px;
 }
 
-.cardButtonsAdmin button {
+.cardButtonsAdmin button, .cardButtonsUser button {
   background-color: #F7371E;
   color: white;
   border: 2px solid #F7371E;
@@ -96,7 +97,7 @@
     margin: 5px;
 }
 
-.cardButtonsAdmin button:hover {
+.cardButtonsAdmin button:hover, .cardButtonsUser  button:hover {
   background-color: white;
   color: #F7371E;
 }
