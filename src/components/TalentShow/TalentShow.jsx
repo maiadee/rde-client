@@ -112,10 +112,10 @@ export default function TalentProfile() {
               talent.images.map((img) => (
                 <img
                   key={img.id}
-                  src={`${import.meta.env.VITE_API_URL}${img.image}`}
+                  src={img.image}
                   alt={`Work by ${talent.name}`}
                   onClick={() =>
-                    handleOpen(`${import.meta.env.VITE_API_URL}${img.image}`)
+                    handleOpen(img.image)
                   }
                   style={{ cursor: "pointer", transition: "transform 0.2s" }}
                   onMouseOver={(e) =>
