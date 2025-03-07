@@ -84,11 +84,11 @@ export default function TalentProfile() {
           <div className={styles.talentProfileImage}>
             {talent.profile_image ? (
               <img
-                src={`${import.meta.env.VITE_API_URL}${talent.profile_image}`}
+                src={talent.profile_image}
                 alt={`Profile of ${talent.name}`}
                 onClick={() =>
                   handleOpen(
-                    `${import.meta.env.VITE_API_URL}${talent.profile_image}`
+                    talent.profile_image
                   )
                 }
                 style={{ cursor: "pointer", transition: "transform 0.2s" }}
