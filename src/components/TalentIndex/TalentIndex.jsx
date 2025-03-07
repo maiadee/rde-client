@@ -25,7 +25,7 @@ export default function AllTalent() {
              <div className={styles.talentCardImage}>
                {tal.profile_image ? (
                  <img
-                   src={`${import.meta.env.VITE_API_URL}${tal.profile_image}`}
+                   src={tal.profile_image}
                    alt={`Profile of ${tal.name}`}
                    width="200px"
                  />
