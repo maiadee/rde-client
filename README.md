@@ -79,6 +79,47 @@ class JWTAuthentication(BaseAuthentication):
 
 I implemented custom JWT-based authentication to secure API endpoints. The authentication class verifies the token sent in the request headers, decodes it using a secret key, and checks if the user exists in the database. If any step fails, it raises an authentication error, which I found helpful when debugging issues with tokens. This process allowed me to understand the flow of authentication better, especially while inspecting the tokens and using developer tools
 
+``` javascript
+from rest_framework import serializers
+from django.contrib.auth import get_user_model, password_validation, hashers
+
+class UserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
+    password_confirmation = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+        password = data.pop('password')
+        password_confirmation = data.pop('password_confirmation')
+
+        if password != password_confirmation:
+            raise serializers.ValidationError({'password_confirmation': 'Passwords do not match.'})
+
+        password_validation.validate_password(password)
+
+        data['password'] = hashers.make_password(password)
+
+        return data
+
+    class Meta:
+        model = get_user_model()
+        fields = ('id', 'username', 'email', 'is_staff', 'password', 'password_confirmation')
+
+```
+
+Above is my UserSerializer, it's responsible for handling user data during registration. It ensures that passwords match, validates password strength, and hashes the password before saving it to the database. This serializer is a key part of the user registration process in the RegisterView, where new users are validated and created securely.
+
+``` javascript
+class RegisterView(APIView):
+    def post(self, request):
+        serialized_user = UserSerializer(data=request.data)
+        if serialized_user.is_valid():
+            serialized_user.save()
+            print(serialized_user.data)
+            return Response(serialized_user.data, 201)
+        return Response(serialized_user.errors, 422)
+```
+The registration process is handled by the RegisterView class shown above, where user data is validated using the UserSerializer. If the data is valid, a new user is created and the response is returned with the user's data. If not, validation errors are returned to inform the user about the incorrect input.
+
 #### Frontend Code Snippets
 
 In this project, I implemented role-based UI rendering and data fetching based on whether the user is an admin or a regular user. To achieve this, I used two key sections of code, both of which exist within my ProposalIndex.jsx file. This file contains the logic to display the appropriate proposals based on the current user's role.
