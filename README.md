@@ -185,8 +185,10 @@ This code is responsible for conditionally rendering the UI. Admin users are abl
 
 ![RDE](<ReadMe Images/rde-proposal-create.png>)
 
+Admin proposal view
 ![RDE](<ReadMe Images/rde-admin-proposal-status.png>)
 
+User proposal view
 ![RDE](<ReadMe Images/rde-user-proposal-view.png>)
 
 ### Challenges
