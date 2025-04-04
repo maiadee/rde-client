@@ -192,17 +192,17 @@ User proposal view
 ![RDE](<ReadMe Images/rde-user-proposal-view.png>)
 
 ### Challenges
-- Naming Conventions and Code Organization: When using previous projects for reference, I encountered issues related to naming conventions, which caused confusion in how data was accessed or displayed. This taught me the importance of taking time to carefully organize and name variables, functions, and files in a meaningful way.
-- Debugging Authentication: One of the major challenges was debugging the authentication process. Dealing with JWTs, inspecting tokens, and understanding the flow of authentication required close attention to detail. I often had to refer to my terminal for error messages and use developer tools to understand token validation and handling better.
+- When using previous projects for reference, I encountered issues related to naming conventions, which caused confusion in how data was accessed or displayed. This taught me the importance of taking time to carefully organize and name variables, functions, and files in a meaningful way.
+- One of the major challenges was debugging the authentication process. Dealing with JWTs, inspecting tokens, and understanding the flow of authentication required close attention to detail. I often had to refer to my terminal for error messages and use developer tools to understand token validation and handling better.
 
 ### Wins
-- Custom JWT Authentication: Successfully implementing JWT-based authentication was a key win. It was satisfying to see the flow of user login, token generation, and the ability to authenticate API calls using these tokens. Debugging this process and getting it to work as expected was a major accomplishment.
-- Role-Based UI Rendering: The role-based UI rendering system for admins and regular users was another major win. It allowed for a flexible and secure display of data and features based on user roles. Successfully fetching and displaying proposals based on user roles and ensuring that admins could perform actions like updating status and deleting proposals was a rewarding result.
-- Clean and Minimalistic Design: The clean, minimalistic design achieved through careful planning and wireframing helped the app focus on showcasing the illustrators. It was satisfying to see how well the design aligned with the original vision.
+- Successfully implementing JWT-based authentication was a key win. It was satisfying to see the flow of user login, token generation, and the ability to authenticate API calls using these tokens. Debugging this process and getting it to work as expected was a major accomplishment.
+- The role-based UI rendering system for admins and regular users was another major win. It allowed for a flexible and secure display of data and features based on user roles. Successfully fetching and displaying proposals based on user roles and ensuring that admins could perform actions like updating status and deleting proposals was a rewarding result.
+- The clean, minimalistic design achieved through careful planning and wireframing helped the app focus on showcasing the illustrators. It was satisfying to see how well the design aligned with the original vision.
 
 ### Key Learnings/Takeaways
-- Role-Based Access Control: I gained a solid understanding of role-based access control, both in terms of backend logic (filtering data based on user roles) and frontend logic (conditionally rendering UI elements). This is essential for building secure and scalable applications.
-- Django and Django REST Framework: I became much more comfortable working with Django, Django REST Framework, and serializers for managing data flow between the backend and frontend. 
+- I gained a solid understanding of role-based access control, both in terms of backend logic (filtering data based on user roles) and frontend logic (conditionally rendering UI elements). This is essential for building secure and scalable applications.
+- I became much more comfortable working with Django, Django REST Framework, and serializers for managing data flow between the backend and frontend. 
 
 ### Future Improvements
 - Making the app mobile responsive.
