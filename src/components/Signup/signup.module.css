@@ -64,20 +64,17 @@ body {
   transition: border 0.3s ease-in-out;
 }
 
-/* ✅ Input focus effect */
 .signUpContainer .form-group input:focus {
   border-color: #f7371e;
   outline: none;
 }
 
-/* ✅ Error messages */
 .signUpContainer .error-message {
   color: #f7371e;
   font-size: 12px;
   margin-top: 5px;
 }
 
-/* ✅ Centering the button */
 .signUpContainer .button {
   background-color: #f7371e;
   color: white;

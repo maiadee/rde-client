@@ -65,20 +65,17 @@ text-transform: uppercase;
   transition: border 0.3s ease-in-out;
 }
 
-/* ✅ Input focus effect */
 .loginContainer .formGroup input:focus {
   border-color: #F7371E;
   outline: none;
 }
 
-/* ✅ Error messages */
 .loginContainer .error-message {
   color: #F7371E;
   font-size: 12px;
   margin-top: 5px;
 }
 
-/* ✅ Centering the button */
 .loginContainer .loginButton {
   background-color: #F7371E;
   color: white;
