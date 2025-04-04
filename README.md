@@ -4,6 +4,8 @@
 
 For our final project, we were given one week to create an app that would showcase our skills. I wanted to build something practical that I could reference for future projects, particularly websites for real-world clients. I decided to create a Talent Agency App for a family member. The app allows users to log in, browse illustrator profiles, and submit proposals to the admin. On the backend, the app includes an Admin Panel where administrators can manage,  review and update the status of proposals. 
 
+![RDE](<ReadMe Images/rde-home.png>)
+
 ### Deployment
 
 https://brilliant-dasik-97a8a6.netlify.app/
@@ -175,7 +177,17 @@ This section of the code fetches data based on the user’s role. Admins are all
 
 This code is responsible for conditionally rendering the UI. Admin users are able to access additional features, such as updating the status of proposals and deleting any, they can also view proposals submitted by all users. Regular users can only view their own proposals. This approach ensures that each user is shown the appropriate functionalities according to their role.
 
-IMAGES HERE
+![RDE](<ReadMe Images/rde-index2.png>)
+
+![RDE](<ReadMe Images/rde-hatty copy.png>)
+
+![RDE](<ReadMe Images/rde-anna.png>)
+
+![RDE](<ReadMe Images/rde-proposal-create.png>)
+
+![RDE](<ReadMe Images/rde-admin-proposal-status.png>)
+
+![RDE](<ReadMe Images/rde-user-proposal-view.png>)
 
 ### Challenges
 - Naming Conventions and Code Organization: When using previous projects for reference, I encountered issues related to naming conventions, which caused confusion in how data was accessed or displayed. This taught me the importance of taking time to carefully organize and name variables, functions, and files in a meaningful way.
